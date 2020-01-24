@@ -1,11 +1,19 @@
-function kaliTerusRekursif(angka) {
-    // you can only write your code here!
-    let strAngka = angka.toString();
-    let output = 1;
-    while(strAngka.length>1){
-        return output * kaliTerusRekursif(angka);
+function kaliTerusRekursif(number) {
+    let strNumber = number.toString();
+  
+    let resultCandidate = 1;
+    for(i=0;i<strNumber.length;i++){
+      let int = parseInt(strNumber[i])
+      resultCandidate = resultCandidate * int
     }
-  }
+  
+    if(resultCandidate.toString().length==1){
+      return resultCandidate
+    }else{
+      return kaliTerusRekursif(resultCandidate)
+    }         
+}
+  
   
   // TEST CASES
   console.log(kaliTerusRekursif(66)); // 8
