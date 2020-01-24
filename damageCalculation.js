@@ -1,9 +1,15 @@
 function attack (damage) {
   // Code disini
+  return damage - 2;
 }
 
 function damageCalculation (numberOfAttacks, damagePerAttack) {
   // Code disini
+  let sum = 0;
+  for(i=0;i<numberOfAttacks;i++){
+    sum += attack(damagePerAttack)
+  }
+  return sum;
 }
 
 // TEST CASE
