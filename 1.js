@@ -79,7 +79,20 @@ function exchangeScore(players) {
     output.push(person)
   }
 
-  console.log(output)
+  
+  for(let i=0;i<output.length;i++){
+    var k = 0
+    while(output[i].points>0 && listItem[k].stock>0){
+      if(output[i].points>=listItem[k].harga && listItem[k].stock>0){
+          output[i].items.push(listItem[k].name)
+          listItem[k].stock--
+          output[i].points -= listItem[k].harga
+        }
+        k++
+    }
+  }
+
+  return output
 }
  
  console.log(exchangeScore([
