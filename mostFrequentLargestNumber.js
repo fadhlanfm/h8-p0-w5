@@ -1,42 +1,38 @@
 function sorting(arrNumber) {
     // code di sini
-    if(arrNumber.length<1){
-        return '""'
-    }else{
-        for(i=0;i<arrNumber.length;i++){
-            for(j=0;j<arrNumber.length-i-1;j++){
-                if(arrNumber[j]>arrNumber[j+1]){
-                    let tmp = arrNumber[j]
-                    arrNumber[j] = arrNumber[j+1]
-                    arrNumber[j+1] = tmp
-                }
+    for(i=0;i<arrNumber.length;i++){
+        for(j=0;j<arrNumber.length-i-1;j++){
+            if(arrNumber[j]>arrNumber[j+1]){
+                let tmp = arrNumber[j]
+                arrNumber[j] = arrNumber[j+1]
+                arrNumber[j+1] = tmp
             }
         }
-        return arrNumber
     }
+    return arrNumber
 }
   
 function getTotal(arrNumber) {
     // code di sini
-    if(arrNumber.length<1){
-        return '""';
-    }else{
-        var max = arrNumber[arrNumber.length-1]
-        let counter = 0
-        for(i=0;i<arrNumber.length;i++){
-            if(arrNumber[i]===max){
-                counter++
-            }
+    var max = arrNumber[arrNumber.length-1]
+    let counter = 0
+    for(i=0;i<arrNumber.length;i++){
+        if(arrNumber[i]===max){
+            counter++
         }
-        return 'angka paling besar adalah '+max+' dan jumlah kemunculan sebanyak '+ counter+' kali'
     }
+    return 'angka paling besar adalah '+max+' dan jumlah kemunculan sebanyak '+ counter+' kali'
 }
   
-  function mostFrequentLargestNumbers(arrNumber) {
-    var listSort = sorting(arrNumber);
-    var countHighest = getTotal(listSort);
-    return countHighest;
-  }
+function mostFrequentLargestNumbers(arrNumber) {
+    if(arrNumber.length<1){
+        return "''"
+    }else{
+        var listSort = sorting(arrNumber);
+        var countHighest = getTotal(listSort);
+        return countHighest;
+    }
+}
   
   console.log(mostFrequentLargestNumbers([2, 8, 4, 6, 8, 5, 8, 4]));
   //'angka paling besar adalah 8 dan jumlah kemunculan sebanyak 3 kali'
